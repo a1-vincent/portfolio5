@@ -11,7 +11,7 @@ app.use(express.json());
 const connection = mysql.createConnection({
     host: "localhost",
     user: "root",
-    password: "Duerenfedko0",
+    password: "password",
     database: "study_cafe_db"
 });
 
@@ -108,7 +108,6 @@ app.post('/new/users', (req, res) => {
 app.post('/new/spot',(req,res)=>{
     const city = req.body.city;
     const name = req.body.name;
-
 
     connection.query('insert into spots (city, name) values (?,?)', [city, name])
     res.send("Successful POST request");
