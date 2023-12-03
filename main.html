@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cafes App</title>
+</head>
+<body>
+<h1>Cafes</h1>
+<button onclick="getCafes()">Get Cafes</button>
+
+<script>
+    function getCafes() {
+        fetch('http://localhost:5000/cafes')
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                // Handle the data as needed, e.g., display it on the page
+            })
+            .catch(error => console.error('Error:', error));
+    }
+</script>
+</body>
+</html>
