@@ -26,7 +26,7 @@ app.get('/all/cafes',(req, res)=>{
 
 // Search cafe by ID
 app.get('/cafes/:id', (req, res) => {
-    const { id } = req.params;
+    const id  = req.params;
     connection.query(`SELECT * FROM cafes WHERE id=${id}`, (error, cafe) => {
         if (error) {
             return res.status(500).send(error.message);
@@ -103,14 +103,6 @@ app.post('/new/users', (req, res) => {
         }
         res.status(201).json({ id: result.insertId });
     });
-});
-
-app.post('/new/spot',(req,res)=>{
-    const city = req.body.city;
-    const name = req.body.name;
-
-    connection.query('insert into spots (city, name) values (?,?)', [city, name])
-    res.send("Successful POST request");
 });
 
 app.listen(port, () => {
